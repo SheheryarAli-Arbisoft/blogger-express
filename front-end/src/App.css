@@ -1,0 +1,9 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}

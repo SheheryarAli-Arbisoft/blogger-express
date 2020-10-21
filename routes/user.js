@@ -1,12 +1,13 @@
 const express = require('express');
-const router = express.Router();
 const { check, validationResult } = require('express-validator');
-const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-const jwtSecret = config.get('jwtSecret');
+const User = require('../models/User');
 const { isAuthenticated } = require('../middlewares');
+
+const router = express.Router();
+const jwtSecret = config.get('jwtSecret');
 
 // Load the current user
 router.get('/current', isAuthenticated, async (req, res) => {

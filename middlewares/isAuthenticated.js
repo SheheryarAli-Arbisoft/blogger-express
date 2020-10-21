@@ -1,8 +1,9 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
+
 const jwtSecret = config.get('jwtSecret');
 
-module.exports = function (req, res, next) {
+function isAuthenticated(req, res, next) {
   try {
     const token = req.headers['auth-token'];
 
@@ -21,4 +22,6 @@ module.exports = function (req, res, next) {
   } catch (err) {
     return res.status(500).send('Server error');
   }
-};
+}
+
+module.exports = isAuthenticated;

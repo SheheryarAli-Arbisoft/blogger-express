@@ -1,8 +1,9 @@
 const express = require('express');
-const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const Blog = require('../models/Blog');
 const { isAuthenticated } = require('../middlewares');
+
+const router = express.Router();
 
 // Get all blogs
 router.get('/', isAuthenticated, async (req, res) => {

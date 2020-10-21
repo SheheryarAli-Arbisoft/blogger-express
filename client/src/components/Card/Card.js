@@ -11,7 +11,7 @@ import { Dialog } from '../Dialog';
 import { deleteBlog } from '../../actions/blog';
 
 export const Card = ({ blog, showActions, ...rest }) => {
-  const { id, title, timestamp, description } = blog;
+  const { _id, title, timestamp, description } = blog;
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
 
@@ -20,14 +20,14 @@ export const Card = ({ blog, showActions, ...rest }) => {
   };
 
   const handleConfirm = () => {
-    dispatch(deleteBlog(id));
+    dispatch(deleteBlog(_id));
     setOpen(false);
   };
 
   return (
     <CustomCard {...rest}>
       <CardContent>
-        <Link to={`/blog/${id}`}>
+        <Link to={`/blog/${_id}`}>
           <Text variant='h4' noWrap>
             {title}
           </Text>
@@ -44,7 +44,7 @@ export const Card = ({ blog, showActions, ...rest }) => {
       {showActions && (
         <Fragment>
           <CardActions>
-            <Link to={`/edit-blog/${id}`}>
+            <Link to={`/edit-blog/${_id}`}>
               <Button variant='contained' color='secondary'>
                 <i className='fas fa-pencil-alt' />
                 Edit

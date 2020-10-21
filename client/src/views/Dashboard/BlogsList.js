@@ -24,7 +24,7 @@ export const BlogsList = () => {
         user !== null &&
         blogs.map(blog => (
           <GridItem key={blog.id} xs={12}>
-            <Card blog={blog} showActions={user.id === blog.owner} />
+            <Card blog={blog} showActions={user._id === blog.user} />
           </GridItem>
         ))}
     </Grid>

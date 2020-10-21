@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb://localhost:27017/Blogger"
+  "mongoURI": "mongodb://localhost:27017/Blogger",
+  "jwtSecret": "6iXitZfowp"
 }
